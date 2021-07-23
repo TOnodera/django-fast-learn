@@ -6,6 +6,8 @@ services:
             - TZ=Asia/Tokyo
         volumes:
             - ./:/home/python/app
+        expose:
+            - "8081"
     db:
         build: ./docker/mysql
         volumes:
@@ -18,6 +20,16 @@ services:
             - MYSQL_USER=${MYSQL_USER}
             - MYSQL_PASSWORD=${MYSQL_PASSWORD}
             - TZ=${TZ}
+    nginx:
+        image: nginx:1.16
+        ports:
+            - 8080:80
+        volumes:
+            - ./docker/nginx/conf.d:/etc/nginx/conf.d
+            - ./docker/nginx/uwsgi_params:/etc/nginx/uwsgi_params
+            # - ./static:/static
+        depends_on:
+            - app
 volumes:
     db-store:
     
