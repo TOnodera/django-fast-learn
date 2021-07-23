@@ -1,4 +1,5 @@
 .history
 __pycache__
 .env
-.logs
+logs
+quick_django/quick_django/settings.py
