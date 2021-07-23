@@ -36,7 +36,9 @@
 	"extensions": [
 		"ms-python.python",
 		"mhutchie.git-graph",
-		"ms-python.vscode-pylance"
+		"ms-python.vscode-pylance",
+		"bibhasdn.django-html",
+		"batisteo.vscode-django"
 	],
 
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
