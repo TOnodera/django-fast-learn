@@ -3,3 +3,4 @@ __pycache__
 .env
 logs
 quick_django/quick_django/settings.py
+fixtures
