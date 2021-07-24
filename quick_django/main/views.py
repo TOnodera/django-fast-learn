@@ -19,3 +19,9 @@ def list(request: HttpRequest):
     return render(request, 'main/list.html', {
         'books': books
     })
+
+
+def rel(request: HttpRequest):
+    return render(request, 'main/rel.html', {
+        'book': Book.objects.get(pk=1)
+    })
