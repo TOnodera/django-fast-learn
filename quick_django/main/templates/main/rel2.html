@@ -8,6 +8,7 @@
             <th>ISBNコード</th>
             <th>書名</th>
             <th>価格</th>
+            <th>著者</th>
             <th>出版社</th>
             <th>刊行日</th>
         </tr>
@@ -17,6 +18,11 @@
                     <td>{{ book.isbn }}</td>
                     <td>{{ book.title }}</td>
                     <td>{{ book.price }}</td>
+                    <td>
+                        {% for b in book.author_set.all %}
+                            <div>{{ b.name }}</div>
+                        {% endfor %}
+                    </td>
                     <td>{{ book.publisher }}</td>
                     <td>{{ book.publised|date:'DATE_FORMAT' }}</td>
                 </tr>
