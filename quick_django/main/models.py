@@ -55,3 +55,20 @@ class Review(models.Model):
 
     def __str__(self) -> str:
         return f'{self.name}: {self.body[:10]}'
+
+
+class Author(models.Model):
+    books = models.ManyToManyField(Book)
+
+    name = models.CharField(
+        verbose_name='名前',
+        max_length=20
+    )
+
+    address = models.CharField(
+        verbose_name='住所',
+        max_length=100
+    )
+
+    def __str__(self):
+        return self.name
