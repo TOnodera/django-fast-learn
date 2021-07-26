@@ -8,4 +8,5 @@ urlpatterns = [
     path('list', views.list, name="list"),
     path('rel', views.rel, name="rel"),
     path('rel2', views.rel2, name="rel2"),
+    path('form_input', views.form_input, name="form_input")
 ]
