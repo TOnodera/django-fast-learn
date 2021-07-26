@@ -1,3 +1,4 @@
+from .forms import BookForm
 from .models import Book
 from django.shortcuts import render
 from django.http import HttpRequest, HttpResponse
@@ -30,4 +31,11 @@ def rel(request: HttpRequest):
 def rel2(request: HttpRequest):
     return render(request, 'main/rel2.html', {
         'books': Book.objects.all()
+    })
+
+
+def form_input(request: HttpRequest):
+    form = BookForm()
+    return render(request, 'main/form_input.html', {
+        'form': form
     })
