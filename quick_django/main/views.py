@@ -2,6 +2,7 @@ from .forms import BookForm
 from .models import Book
 from django.shortcuts import render
 from django.http import HttpRequest, HttpResponse
+from django.views.decorators.http import require_POST
 
 
 def index(request: HttpRequest):
@@ -39,3 +40,16 @@ def form_input(request: HttpRequest):
     return render(request, 'main/form_input.html', {
         'form': form
     })
+
+
+@require_POST
+def form_process(request: HttpRequest):
+    form = BookForm(request.POST)
+    if form.is_valid():
+        return render(request, 'main/form_process.html', {
+            'form': form
+        })
+    else:
+        return render(request, 'main/form_input.html', {
+            'form': form
+        })
