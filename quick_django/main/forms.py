@@ -1,4 +1,5 @@
 from django import forms
+from datetime import date
 
 
 class BookForm(forms.Form):
@@ -41,3 +42,9 @@ class BookForm(forms.Form):
             "required": "刊行日は必須です。",
             "invalid": "刊行日はYYYY-MM-DDの形式で入力して下さい。"
         })
+
+    def clean_published(self):
+        published = self.cleaned_data['published']
+        if date.today() < published:
+            raise forms.ValidationError('刊行日は今日以前の日付で入力して下さい。')
+        return published
