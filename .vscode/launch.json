@@ -9,7 +9,7 @@
             // デバッグ時の挙動。実行の他にもある
             "request": "launch",
             // 動作させるファイルへのパス
-            "program": "${workspaceFolder}/django/manage.py",
+            "program": "${workspaceFolder}/quick_django/manage.py",
             // デバッグで使用するターミナルを選択。VSCode外のターミナルを起動することもできる
             "console": "integratedTerminal",
             // プログラム実行時の引数
